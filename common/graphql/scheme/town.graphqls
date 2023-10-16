@@ -1,0 +1,9 @@
+type Town {
+    Id: String,
+    TownCode: String,
+    TownName: String
+}
+
+type Query {
+    GetAllTown: [Town!]!
+}

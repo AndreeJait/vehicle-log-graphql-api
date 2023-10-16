@@ -1,0 +1,44 @@
+input LogInRequest {
+    PlatNumber: String!
+    TownCode: String!
+    VehicleType: String!
+}
+
+input LogOutRequest {
+    PlatNumber: String!
+    TownCode: String!
+    VehicleType: String
+}
+
+type LogOutResponse {
+    TownName: String!
+    TotalTime: Int
+    TimeIn: String
+    TimeOut: String
+    DateAt: String
+    PlatNumber: String
+    VehicleType: String
+    DateOutAt: String
+    TownCode: String
+}
+
+type TownLogReport {
+    TownCode: String
+    VehicleType: String
+    TotalLogged: Int
+    Quantity: Int
+}
+
+input FilterReportLogged {
+    Date: String
+    TownCode: String!
+}
+
+extend type Query {
+    ReportLogged(filter: FilterReportLogged!): [TownLogReport!]!
+}
+
+type Mutation{
+    LogIn(input: LogInRequest): Boolean
+    LogOut(input: LogOutRequest): LogOutResponse
+}

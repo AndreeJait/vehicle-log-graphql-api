@@ -1,0 +1,19 @@
+type VehicleTown {
+    ID: String,
+    PlatNumber: String,
+    VehicleType: String,
+    TimeCheckIn: String,
+    TimeCheckOut: String,
+    DateCheckIn: String,
+    DateCheckOut: String
+}
+
+input FilterVehicleTown {
+    PlatNumber: String,
+    VehicleType: String
+    TownCode: String!
+}
+
+extend type Query  {
+    GetVehicleInTown(filter: FilterVehicleTown): [VehicleTown!]!
+}

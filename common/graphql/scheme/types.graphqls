@@ -1,0 +1,8 @@
+type Types {
+    Id: String,
+    TypeName: String
+}
+
+extend type Query {
+    GetAllTypes: [Types!]!
+}
